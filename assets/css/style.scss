@@ -1,0 +1,359 @@
+// Import font
+@import url('../fonts/vulfmono/stylesheet.css');
+
+* {
+    box-sizing: border-box;
+}
+
+html, 
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+  background-color: #789481;
+  font-family: 'Vulf Mono';
+  font-size: 18px;
+}
+
+h1 {
+    font-size: 1em;
+    font-weight: 400;
+    position: fixed;
+    top: 20px;
+    z-index: 4;
+}
+
+.flex-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* CLOCK */
+
+.clock-wrapper {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    margin: 0 auto;
+    max-height: 850px;
+    max-width: 850px;
+    overflow: hidden;
+    padding: 0 50px;
+    position: relative;
+    width: 100%;
+    z-index: 3;
+}
+
+.clock {
+    // background-color: lightpink;
+    background-size: cover;
+    border-radius: 50%;
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+    width: 100%;
+    
+    .sep::before, .sep::after {
+        background-color: black;
+        content: "";
+        display: block;
+        height: 30%;
+        max-height: 90px;
+        position: absolute;
+        right: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+    }
+    
+    .sep::after {
+        bottom: 0;
+    }
+    
+    .sep {
+        height: 100%;
+        transform: rotate(90deg);
+        position: absolute;
+        width: 100%;
+        
+        &.topbottom {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+
+/* clock style ends */
+
+
+/* common style for every hand */
+
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+    transform-origin: bottom;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    
+    &::before {
+        background: transparent url('../img/hand.svg') no-repeat center;
+        background-size: contain;
+        content: "";
+        display: block;
+        height: 73px;
+        position: absolute;
+        left: 0;
+        top: -35px;
+        transform-origin: left;
+        transform: rotate(-90deg);
+        width: 135px;
+    }
+}
+
+/* common style ends */
+
+/* hour hand */
+
+.hour {
+    width: 5px;
+    height: 35%;
+    // background-color: #000;
+}
+
+/* hour hand style ends */
+/* minute hand style */
+
+.minute {
+    width: 5px;
+    height: 35%;
+    // background-color: #000;
+}
+
+/* minute hand style ends */
+/* second hand style */
+
+.second {
+    width: 5px;
+    height: 40%;
+    // background-color: #ff0000;
+}
+
+/* second hand style ends */
+
+// SHAPES
+
+#shapes-wrapper {
+    
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    
+    .audio-loaded & {
+        
+        > div {
+            animation: rotation 80s infinite linear;
+        }
+    }
+    
+    > div {
+
+        left: 50%;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        transition: opacity 0.2s ease;
+        transform: translate(-50%, -50%); 
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        
+        &:nth-child(1) {
+            // background: transparent url('../img/shape1.svg') no-repeat center;
+            height: 338px;
+            width: 438px;
+        }
+        
+        &:nth-child(2) {
+            animation-delay: 15s;
+            height: 330px;
+            width: 439px;
+        }
+        
+        &:nth-child(3) {
+            animation-delay: 25s;
+            height: 319px;
+            width: 387px;
+        }
+        
+        &:nth-child(4) {
+            animation-delay: 35s;
+            height: 342px;
+            width: 615px;
+        }
+        
+        &:nth-child(5) {
+            animation-delay: 45s;
+            height: 334px;
+            width: 625px;
+        }
+        
+        &:nth-child(6) {
+            animation-delay: 55s;
+            height: 305px;
+            width: 608px;
+        }
+        
+        &:nth-child(7) {
+            animation-delay: 65s;
+            height: 296px;
+            width: 586px;
+        }
+    }
+    
+
+}
+
+// LOADING
+
+#loading-screen {
+    background-color: #789481;
+    bottom: 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;    
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+
+    div {
+        width: 1rem;
+        height: 1rem;
+        margin: 2rem 0.3rem;
+        background-color: white;
+        border-radius: 50%;
+        animation: 0.9s bounce infinite alternate;
+
+        &:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+    }
+}
+
+@keyframes bounce {
+  to {
+    opacity: 0.3;
+    transform: translate3d(0, -1rem, 0);
+  }
+}
+
+#btnEnter {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    font-family: inherit;
+    font-size: 1em;
+    padding: 5px;
+    width: 150px;
+}
+
+// ANIMATIONS
+
+// .rotate {
+  
+// }
+
+@keyframes rotation {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+  }
+  30%  { opacity: 1; }
+  50%  { opacity: 1; }
+  70% { opacity: 1;  }
+  100% {
+    opacty: 0;
+    transform: translate(-50%, -50%) scale(6) rotate(359deg);
+  }
+}
+  
+// MEDIA QUERIES
+
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 575.98px) {
+    
+    .clock {
+        .sep::before, .sep::after {
+            max-height: 43px;
+        }
+    }
+    
+    
+    .hand::before {
+        background-size: cover;
+        height: 27px;
+        top: 0;
+        width: 69px;
+    }
+    
+    @keyframes rotation {
+        0% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(0) rotate(0deg);
+        }
+        30%  { opacity: 1; }
+        50%  { opacity: 1; }
+        70% { opacity: 1;  }
+        100% {
+            opacty: 0;
+            transform: translate(-50%, -50%) scale(2) rotate(359deg);
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) { 
+    
+    .clock {
+        .sep::before, .sep::after {
+            // max-height: 43px;
+        }
+    }
+    
+    
+    .hand::before {
+        // height: 27px;
+        // width: 69px;
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+    
+ }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+    
+}
