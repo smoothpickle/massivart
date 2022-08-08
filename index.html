@@ -1,0 +1,106 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>A Basic HTML5 Template</title>
+    <meta name="description" content="description goes here">
+    <meta name="author" content="MASSIVArt">
+
+    <meta property="og:title" content="A Basic HTML5 Template">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+    <meta property="og:description" content="description goes here">
+    <meta property="og:image" content="image.png">
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- <link rel="stylesheet" href="assets/css/styles.css?v=1.0"> -->
+    <link rel="stylesheet" href="assets/css/style.css?v=1.0">
+</head>
+
+<!--
+    
+    <iframe src="https://onedrive.live.com/embed?cid=F3D7A5FC360A4E23&resid=F3D7A5FC360A4E23%21470&authkey=ALF1QXfeBLoBaA8" width="98" height="120" frameborder="0" scrolling="no"></iframe>
+    
+    https://onedrive.live.com/download?cid=F3D7A5FC360A4E23&resid=F3D7A5FC360A4E23%21470&authkey=ALF1QXfeBLoBaA8
+-->
+<body>
+    
+    <div class="flex-container">
+        <h1>Extraction minière</h1>
+        <div class="clock-wrapper">
+            <div id="clock" class="clock">
+                <div class="sep rightleft"></div>
+                <div class="sep topbottom"></div>
+                <div class="hand hour"></div>
+                <div class="hand minute"></div>
+                <!-- <div class="hand second"></div> -->
+            </div>
+        </div>
+    </div>
+    <div id="loading-screen">
+        <div class="loading">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <button id="btnEnter">Entrer</button>
+    </div>
+    
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/player.js"></script>
+    <script>
+        
+        const trackUrl_arr = [
+            './_src/piste2.mp3',
+            './_src/piste3.mp3',
+            './_src/piste2.mp3',
+            './_src/piste3.mp3',
+            './_src/piste2.mp3',
+            './_src/piste3.mp3',
+            './_src/piste2.mp3',
+            './_src/piste3.mp3',
+            './_src/piste2.mp3',
+            './_src/piste3.mp3',
+            './_src/piste2.mp3',
+            './_src/piste3.mp3',
+            './_src/piste2.mp3',
+            './_src/piste3.mp3',
+            './_src/piste2.mp3',
+            './_src/piste3.mp3',
+            './_src/piste2.mp3',
+            './_src/piste3.mp3',
+            './_src/piste2.mp3',
+            './_src/piste3.mp3',
+            './_src/piste2.mp3',
+            './_src/piste3.mp3',
+            './_src/piste2.mp3',
+            './_src/piste3.mp3',
+        ];
+        
+        const shapes_url = [
+            './assets/img/shape1.svg',
+            './assets/img/shape2.svg',
+            './assets/img/shape3.svg',
+            './assets/img/shape4.svg',
+            './assets/img/shape5.svg',
+            './assets/img/shape6.svg',
+            './assets/img/shape7.svg'
+        ];
+        
+        var initWebsite = new player({
+            selector: "audio",
+            playlist_track: trackUrl_arr,
+            shapes: shapes_url
+        });
+                    
+    </script>
+</body>
+
+</html>
